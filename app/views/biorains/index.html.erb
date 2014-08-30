@@ -1,0 +1,27 @@
+<h1>Listing biorains</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Description</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @biorains.each do |biorain| %>
+      <tr>
+        <td><%= biorain.description %></td>
+        <td><%= link_to 'Show', biorain %></td>
+        <td><%= link_to 'Edit', edit_biorain_path(biorain) %></td>
+        <td><%= link_to 'Destroy', biorain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Biorain', new_biorain_path %>

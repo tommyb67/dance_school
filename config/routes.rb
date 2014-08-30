@@ -1,5 +1,7 @@
 DanceSchool::Application.routes.draw do
 
+  resources :biorains
+
   devise_for :users
   root "pages#home"
 
