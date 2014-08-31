@@ -1,38 +1,16 @@
-<h1>biorains</h1>
-
-<% if user_signed_in? %>
-  <%= link_to 'New Biorain', new_biorain_path %>
-<% end %>
-
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>Description</th>
-      <th>User</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @biorains.each do |biorain| %>
-      <tr>
-        <td><%= image_tag biorain.image.url(:medium) %></td>
-        <td><%= biorain.description %></td>
-        <td><%= biorain.user.email if biorain.user %></td>
-        <td><%= link_to 'Show', biorain %></td>
-        <% if biorain.user == current_user %>
-          <td><%= link_to 'Edit', edit_biorain_path(biorain) %></td>
-          <td><%= link_to 'Destroy', biorain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<% if user_signed_in? %>
-  <%= link_to 'New Biorain', new_biorain_path %>
-<% end %>
+<div id="biorains" class="transitions-enabled">
+  <% @biorains.each do |biorain| %>
+    <div class="box box panel panel-default">
+      <%= image_tag biorain.image.url(:medium) %>
+        <div class="panel-body">
+          <%= biorain.description %>
+          <%= biorain.user.email if biorain.user %>
+          <%= link_to 'Show', biorain %>
+            <% if biorain.user == current_user %>
+              <td><%= link_to 'Edit', edit_biorain_path(biorain) %>
+              <td><%= link_to 'Destroy', biorain, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+        </div>
+     </div>
+  <% end %>
+</div>
