@@ -4,7 +4,7 @@
   <thead>
     <tr>
       <th>Description</th>
-      <th></th>
+      <th>User</th>
       <th></th>
       <th></th>
     </tr>
@@ -14,9 +14,12 @@
     <% @biorains.each do |biorain| %>
       <tr>
         <td><%= biorain.description %></td>
+        <td><%= biorain.user.email if biorain.user %></td>
         <td><%= link_to 'Show', biorain %></td>
-        <td><%= link_to 'Edit', edit_biorain_path(biorain) %></td>
-        <td><%= link_to 'Destroy', biorain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if biorain.user == current_user %>
+          <td><%= link_to 'Edit', edit_biorain_path(biorain) %></td>
+          <td><%= link_to 'Destroy', biorain, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +27,6 @@
 
 <br>
 
-<%= link_to 'New Biorain', new_biorain_path %>
+<% if user_signed_in? %>
+  <%= link_to 'New Biorain', new_biorain_path %>
+<% end %>

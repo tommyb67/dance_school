@@ -1,5 +1,6 @@
 class BiorainsController < ApplicationController
   before_action :set_biorain, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def index
     @biorains = Biorain.all
@@ -9,14 +10,14 @@ class BiorainsController < ApplicationController
   end
 
   def new
-    @biorain = Biorain.new
+    @biorain = current_user.biorains.build
   end
 
   def edit
   end
 
   def create
-    @biorain = Biorain.new(biorain_params)
+    @biorain = current_user.biorains.build(biorain_params)
     if @biorain.save
       redirect_to @biorain, notice: 'Biorain was successfully created.'
     else
@@ -44,6 +45,11 @@ class BiorainsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_biorain
       @biorain = Biorain.find(params[:id])
+    end
+
+    def correct_user
+      @biorain = current_user.biorains.find_by(id: params[:id])
+      redirect_to biorains_path, notice: "Not authorized to edit this biorain" if @biorain.nil?
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

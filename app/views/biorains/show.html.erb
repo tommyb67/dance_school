@@ -5,5 +5,7 @@
   <%= @biorain.description %>
 </p>
 
-<%= link_to 'Edit', edit_biorain_path(@biorain) %> |
-<%= link_to 'Back', biorains_path %>
+<% if @biorain.user == current_user %>
+  <%= link_to 'Edit', edit_biorain_path(@biorain) %>
+<% end %>
+  <%= link_to 'Back', biorains_path %>
