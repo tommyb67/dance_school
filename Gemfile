@@ -11,6 +11,7 @@ gem 'pry-rails', '~> 0.3.2'
 gem 'bootstrap-sass', '~> 3.2.0.1'
 gem 'devise', '~> 3.3.0'
 gem 'paperclip', '~> 4.2.0'
+gem 'aws', '~> 2.10.2'
 
 
 group :development, :test do
