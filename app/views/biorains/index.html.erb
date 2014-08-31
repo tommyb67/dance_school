@@ -1,4 +1,8 @@
-<h1>Listing biorains</h1>
+<h1>biorains</h1>
+
+<% if user_signed_in? %>
+  <%= link_to 'New Biorain', new_biorain_path %>
+<% end %>
 
 <table>
   <thead>
