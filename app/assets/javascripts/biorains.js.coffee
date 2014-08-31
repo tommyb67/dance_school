@@ -4,7 +4,7 @@
 
 
 $ ->
-  $('#pins').imagesLoaded ->
-    $('#pins').masonry
+  $('#biorains').imagesLoaded ->
+    $('#biorains').masonry
       itemSelector: '.box'
       isFitWidth: true
