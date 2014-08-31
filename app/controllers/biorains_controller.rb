@@ -54,6 +54,6 @@ class BiorainsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def biorain_params
-      params.require(:biorain).permit(:description)
+      params.require(:biorain).permit(:description, :image)
     end
 end
