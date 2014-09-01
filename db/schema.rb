@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140831015318) do
+ActiveRecord::Schema.define(version: 20140901025719) do
 
   create_table "biorains", force: true do |t|
     t.string   "description"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20140831015318) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
