@@ -3,8 +3,8 @@
     <div class="box box panel panel-default">
       <%= image_tag biorain.image.url(:medium) %>
         <div class="panel-body">
-          <%= biorain.description %>
-          <%= biorain.user.email if biorain.user %>
+          <%= biorain.description %><br>
+          <p>Added by: <%= biorain.user.first_name if biorain.user %></p>
           <%= link_to 'Show', biorain %>
             <% if biorain.user == current_user %>
               <td><%= link_to 'Edit', edit_biorain_path(biorain) %>
