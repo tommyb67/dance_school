@@ -1,4 +1,6 @@
-<%= link_to 'Back', biorains_path %>
+<div class="center">
+  <%= link_to 'Back', biorains_path %>
+</div>
 
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
@@ -8,7 +10,7 @@
       </div>
       <div class="panel-body">
         <p><%= @biorain.description %></p>
-        <p><strong><%= @biorain.user.email if @biorain.user %></strong></p>
+        <p>Added by: <strong><%= @biorain.user.first_name if @biorain.user %></strong></p>
 
         <% if @biorain.user == current_user %>
          <%= link_to 'Edit', edit_biorain_path(@biorain) %>
