@@ -4,7 +4,7 @@ class BiorainsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @biorains = Biorain.all.order("created_at DESC")
+    @biorains = Biorain.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 40)
   end
 
   def show
