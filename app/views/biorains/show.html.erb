@@ -1,4 +1,4 @@
-<%= link_to 'Back', pins_path %>
+<%= link_to 'Back', biorains_path %>
 
 <div class="row">
   <div class="col-md-offset-2 col-md-8">
@@ -11,7 +11,7 @@
         <p><strong><%= @biorain.user.email if @biorain.user %></strong></p>
 
         <% if @biorain.user == current_user %>
-         <%= link_to 'Edit', edit_pin_path(@biorain) %>
+         <%= link_to 'Edit', edit_biorain_path(@biorain) %>
         <% end %>
       </div>
     </div>
