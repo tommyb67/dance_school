@@ -1,6 +1,6 @@
-class CreateBiorains < ActiveRecord::Migration
+class CreatePictures < ActiveRecord::Migration
   def change
-    create_table :biorains do |t|
+    create_table :pictures do |t|
       t.string :description
 
       t.timestamps

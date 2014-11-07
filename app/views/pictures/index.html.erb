@@ -1,0 +1,21 @@
+<div id="pictures" class="transitions-enabled">
+  <% @pictures.each do |picture| %>
+    <div class="box box panel panel-default">
+      <%= image_tag picture.image.url(:medium) %>
+        <div class="panel-body">
+          <%= picture.description %><br>
+          <p>Added by: <%= picture.user.first_name if picture.user %></p>
+          <%= link_to 'Show', picture %>
+            <% if picture.user == current_user %>
+              <td><%= link_to 'Edit', edit_picture_path(picture) %>
+              <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <% end %>
+        </div>
+     </div>
+  <% end %>
+</div>
+
+
+<div class="center">
+  <%= will_paginate @pictures, renderer: BootstrapPagination::Rails %>
+</div>

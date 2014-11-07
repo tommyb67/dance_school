@@ -1,0 +1,21 @@
+<div class="center">
+  <%= link_to 'Back', pictures_path %>
+</div>
+
+<div class="row">
+  <div class="col-md-offset-2 col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-heading center">
+        <%= image_tag @picture.image.url(:medium) %>
+      </div>
+      <div class="panel-body">
+        <p><%= @picture.description %></p>
+        <p>Added by: <strong><%= @picture.user.first_name if @picture.user %></strong></p>
+
+        <% if @picture.user == current_user %>
+         <%= link_to 'Edit', edit_picture_path(@picture) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

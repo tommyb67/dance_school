@@ -11,9 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140908200634) do
+ActiveRecord::Schema.define(version: 20141107152413) do
 
-  create_table "biorains", force: true do |t|
+  create_table "pictures", force: true do |t|
     t.string   "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 20140908200634) do
     t.datetime "image_updated_at"
   end
 
-  add_index "biorains", ["user_id"], name: "index_biorains_on_user_id"
+  add_index "pictures", ["user_id"], name: "index_pictures_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "",    null: false

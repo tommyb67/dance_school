@@ -1,4 +1,4 @@
 require 'test_helper'
 
-class BiorainsHelperTest < ActionView::TestCase
+class PicturesHelperTest < ActionView::TestCase
 end

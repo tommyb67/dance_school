@@ -1,6 +1,6 @@
-class AddUserIdToBiorains < ActiveRecord::Migration
+class AddUserIdToPictures < ActiveRecord::Migration
   def change
-    add_column :biorains, :user_id, :integer
-    add_index :biorains, :user_id
+    add_column :pictures, :user_id, :integer
+    add_index :pictures, :user_id
   end
 end
