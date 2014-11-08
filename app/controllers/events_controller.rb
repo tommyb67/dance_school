@@ -4,8 +4,15 @@ class EventsController < ApplicationController
     @events = Event.all
   end
 
+  def show
+    @event = Event.find(params[:id])
+  end
+
   def new
-    @event = current_user.events.build
+    @event = Event.create
+  end
+
+  def edit
   end
 
  def create
@@ -15,6 +22,9 @@ class EventsController < ApplicationController
     else
       render action: 'new'
     end
+  end
+
+  def update
   end
 
 end
