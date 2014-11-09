@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    @events = Event.order('created_at desc')
   end
 
   def show
@@ -9,22 +9,21 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.create
+    @event = Event.new
   end
 
-  def edit
-  end
-
- def create
-  @event = current_user.events.build(event_params)
-    if @event.save
+  def create
+    @event = Event.new(event_params)
+    if current_user.admin? && @event.save
       redirect_to @event, notice: 'Event was successfully created.'
     else
       render action: 'new'
     end
   end
 
-  def update
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def event_params
+    params.require(:event).permit(:name, :location, :description)
   end
 
 end
