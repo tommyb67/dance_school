@@ -1,3 +1,29 @@
-<% @lessons.each do |lesson| %>
-  <>
-<% end %>
+ <div class="center">
+  <%= link_to 'Back', new_lesson_path %>
+</div>
+
+  <div class="bs-example">
+    <table class="table">
+      <caption>2014 Fall Schedule</caption>
+      <thead>
+        <tr>
+          <th>Level</th>
+          <th>Starts</th>
+          <th>Ends</th>
+          <th>Location</th>
+          <th>Instructor</th>
+        </tr>
+      </thead>
+      <tbody>
+          <% @lessons.each do |l| %>
+            <tr>
+              <td><%= l.level %></td>
+              <td><%= l.starts_at %></td>
+              <td><%= l.ends_at %></td>
+              <td><%= l.instructor %></td>
+              <td><%= l.location %></td>
+            </tr>
+          <% end %>
+      </tbody>
+    </table>
+  </div>

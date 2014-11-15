@@ -16,6 +16,8 @@ gem 'aws-sdk', '~> 1.52.0'
 gem 'masonry-rails', '~> 0.2.1'
 gem 'will_paginate', '~> 3.0.7'
 gem 'will_paginate-bootstrap', '~> 1.0.1'
+gem 'jquery-ui-rails', '~> 5.0.2'
+gem 'jquery-datetimepicker-rails', '~> 2.3.7.0'
 
 
 group :development, :test do

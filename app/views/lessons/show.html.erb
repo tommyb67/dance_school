@@ -1,0 +1,26 @@
+  <div class="center">
+  <%= link_to 'Back', new_lesson_path %>
+</div>
+
+ <div>
+  <div class="table-responsive">
+     <thead>
+        <tr>
+          <th>Level</th>
+          <th>Starts</th>
+          <th>Ends</th>
+          <th>Location</th>
+          <th>Instructor</th>
+        </tr>
+      </thead>
+       <tbody>
+        <tr>
+          <td><%= @lesson.level %></td>
+          <td><%= @lesson.starts_at %></td>
+          <td><%= @lesson.ends_at %></td>
+          <td><%= @lesson.instructor %></td>
+          <td><%= @lesson.location %></td>
+        </tr>
+      </tbody>
+  </div>
+</div>

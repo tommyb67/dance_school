@@ -1,0 +1,43 @@
+<%= form_for @lesson, html: { multipart: true } do |f| %>
+  <% if @lesson.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lesson.errors.count, "error") %> prohibited this picture from being saved:</h2>
+
+      <ul>
+      <% @lesson.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+   <div class="form-group">
+      <%= f.label :level %><br>
+      <%= f.select :level, options_for_select([['Beginner', 1], ['Advanced Beginner/Novice', 2], ['Prize Winners', 3], ['Prize Winners and Open Chanpions', 4], ['Hard Shoe', 5], ['Boys Only', 6], ["U10-11 Ceili's", 7], ['All Levels', 8]]), class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :instructor %><br>
+      <%= f.select :instructor, [['Bridget', 1], ['Sean', 2]], class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :location %><br>
+      <%= f.select :location, [['Aisling Irish Center', 1], ['Mahopac', 2]], class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :starts %><br>
+      <%= f.text_field :starts_at, :id => "datetimepicker", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :ends %><br>
+      <%= f.text_field :ends_at, :id => "datetimepicker", class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+
+  <% end %>
