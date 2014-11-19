@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui/datepicker
 //= require jquery.datetimepicker
 //= require bootstrap
 //= require turbolinks
@@ -19,5 +20,7 @@
 //= require turbolinks
 //= require masonry/jquery.masonry
 //= require_tree .
+
+$("#datepicker").datepicker()
 
 

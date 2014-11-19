@@ -18,8 +18,8 @@
           <% @lessons.each do |l| %>
             <tr>
               <td><%= l.level %></td>
-              <td><%= l.starts_at %></td>
-              <td><%= l.ends_at %></td>
+              <td><%= l.starts_at.strftime("%A %l:%M %P") %></td>
+              <td><%= l.ends_at.strftime("%l:%M %P") %></td>
               <td><%= l.instructor %></td>
               <td><%= l.location %></td>
             </tr>
