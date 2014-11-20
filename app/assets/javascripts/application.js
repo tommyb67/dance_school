@@ -21,6 +21,6 @@
 //= require masonry/jquery.masonry
 //= require_tree .
 
-$("#datepicker").datepicker()
+$("#datepicker").datepicker();
 
 
