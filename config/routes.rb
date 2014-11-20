@@ -3,6 +3,7 @@ DanceSchool::Application.routes.draw do
   resources :pictures
   resources :events
   resources :lessons
+  resources :dancers
 
   devise_for :users
   root "pages#home"

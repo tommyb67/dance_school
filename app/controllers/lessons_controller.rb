@@ -10,7 +10,7 @@ class LessonsController < ApplicationController
 
   def create
      @lesson = Lesson.new(lesson_params)
-    if current_user.admin? && @lesson.save
+    if user_signed_in? && @lesson.save
       redirect_to @lesson, notice: 'Lesson was successfully created.'
     else
       render action: 'new'
@@ -21,6 +21,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.find(params[:id])
   end
 
+private
 
   def lesson_params
     params.require(:lesson).permit(:level, :starts_at, :ends_at, :instructor, :location)
