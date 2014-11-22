@@ -1,2 +1,2 @@
 $ ->
- $("#datetimepicker").datetimepicker();
+ $("#datepicker").datepicker({ changeMonth: true, changeYear: true });

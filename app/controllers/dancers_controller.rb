@@ -1,4 +1,5 @@
 class DancersController < ApplicationController
+  before_action :set_dancer, only: [:show, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
   before_action :authenticate_user!, except: [:index, :show]
 
@@ -19,18 +20,22 @@ class DancersController < ApplicationController
     else
       render action: 'new'
     end
-
-     if @dancer.update(dancer_params)
-      redirect_to @dancer, notice: 'Dancer was successfully updated.'
-    else
-      render action: 'edit'
-    end
   end
 
   private
 
+    # Use callbacks to share common setup or constraints between actions.
+    def set_dancer
+      @dancer = Dancer.find(params[:id])
+    end
+
+    def correct_user
+      @dancer = current_user.dancers.find_by(id: params[:id])
+      redirect_to dancers_path, notice: "Not authorized to edit this dancer" if @dancer.nil?
+    end
+
   def dancer_params
-      params.require(:first_name, :last_name, :gender, :birthdate).permit(:email)
+      params.require(:dancer).permit(:first_name, :last_name, :gender, :birthdate, :user_id)
     end
 
 end
