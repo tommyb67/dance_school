@@ -4,18 +4,19 @@ class DancersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
+    @dancers = Dancer.all.order("created_at DESC")
   end
 
   def show
   end
 
   def new
-    @dancer = current_user.dancers.build
+    @dancer = Dancer.new
   end
 
   def create
-     @dancer = current_user.dancers.build(dancer_params)
-    if @dancer.save
+     @dancer = Dancer.new(dancer_params)
+    if current_user.admin? && @dancer.save
       redirect_to @dancer, notice: 'Dancer was successfully registered.'
     else
       render action: 'new'
