@@ -3,5 +3,26 @@
 </div>
 
 
-<h1>Events</h1>
+  <div class="center">
+  <%= link_to 'Back', new_event_path %>
+</div>
+
+ <div>
+  <div class="table-responsive">
+     <thead>
+        <tr>
+          <th>Name</th>
+          <th>location</th>
+          <th>description</th>
+        </tr>
+      </thead>
+       <tbody>
+        <tr>
+          <td><%= @event.name %></td>
+          <td><%= @event.location %></td>
+          <td><%= @event.description %></td>
+        </tr>
+      </tbody>
+  </div>
+</div>
 
